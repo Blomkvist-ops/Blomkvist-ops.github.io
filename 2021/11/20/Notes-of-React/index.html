@@ -1,0 +1,504 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Meihui Li">
+  <meta name="keywords" content="">
+  <meta name="description" content="React ref 一、快速创建react文件 online 浏览器 create-react-app github (快速创建)  npx 是npm的一个命令 npm是nodejs的包管理工具 npx create-react-app react-store cd react-store npm start &#x2F;&#x2F; 进入开发者环境 localhost:3000 二、VSCODE打开文件夹packa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Notes of React">
+<meta property="og:url" content="https://blomkvist-ops.github.io/2021/11/20/Notes-of-React/index.html">
+<meta property="og:site_name" content="Meihui Li">
+<meta property="og:description" content="React ref 一、快速创建react文件 online 浏览器 create-react-app github (快速创建)  npx 是npm的一个命令 npm是nodejs的包管理工具 npx create-react-app react-store cd react-store npm start &#x2F;&#x2F; 进入开发者环境 localhost:3000 二、VSCODE打开文件夹packa">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/11/20/4lBc6wZtA2r1u7G.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/20/KqWpo6c3dMiCbRL.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/20/t91Rk6ynTYDloah.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/20/oGMuqJ38HzbplNs.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/20/cyLIz8gE5GMkQFP.jpg">
+<meta property="article:published_time" content="2021-11-20T12:10:02.000Z">
+<meta property="article:modified_time" content="2021-11-23T02:34:12.000Z">
+<meta property="article:author" content="Meihui Li">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.loli.net/2021/11/20/4lBc6wZtA2r1u7G.png">
+  
+  <title>Notes of React - Meihui Li</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blomkvist-ops.github.io","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Meihui Li</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/batman.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Notes of React">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-11-20 04:10" pubdate>
+        November 20, 2021 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      undefined 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      NaN 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Notes of React</h1>
+            
+            <div class="markdown-body">
+              <p><a target="_blank" rel="noopener" href="https://reactjs.org/">React ref</a></p>
+<h3 id="一、快速创建react文件"><a href="#一、快速创建react文件" class="headerlink" title="一、快速创建react文件"></a>一、快速创建react文件</h3><ol>
+<li>online</li>
+<li>浏览器</li>
+<li>create-react-app github (快速创建)</li>
+</ol>
+<p>npx 是npm的一个命令 npm是nodejs的包管理工具</p>
+<p>npx create-react-app react-store</p>
+<p>cd react-store</p>
+<p>npm start // 进入开发者环境</p>
+<p>localhost:3000</p>
+<h3 id="二、VSCODE打开文件夹"><a href="#二、VSCODE打开文件夹" class="headerlink" title="二、VSCODE打开文件夹"></a>二、VSCODE打开文件夹</h3><p>package: dependencies 环境配置</p>
+<p>node_modules: dependencies </p>
+<p>public: 静态资源</p>
+<h3 id="三、开始编写"><a href="#三、开始编写" class="headerlink" title="三、开始编写"></a>三、开始编写</h3><h4 id="1-删除src和public文件下的东西"><a href="#1-删除src和public文件下的东西" class="headerlink" title="1. 删除src和public文件下的东西"></a>1. 删除src和public文件下的东西</h4><h4 id="2-public新建index-html"><a href="#2-public新建index-html" class="headerlink" title="2. public新建index.html"></a>2. public新建index.html</h4><h4 id="3-src新建index-js"><a href="#3-src新建index-js" class="headerlink" title="3. src新建index.js"></a>3. src新建index.js</h4><p>把程序编译打包之后放到内存里 上传网页运行</p>
+<h4 id="4-class-XXX-extends-React-Component"><a href="#4-class-XXX-extends-React-Component" class="headerlink" title="4. class XXX extends React.Component"></a>4. class XXX extends React.Component</h4><p><code>export default XXX; // at the end of the class file</code></p>
+<h4 id="5-render函数-展示内容"><a href="#5-render函数-展示内容" class="headerlink" title="5. render函数 展示内容"></a>5. render函数 展示内容</h4><p><code>ReactDom.render()</code></p>
+<h4 id="6-JSX技术-Babel转码器-可以直接return-html元素"><a href="#6-JSX技术-Babel转码器-可以直接return-html元素" class="headerlink" title="6. JSX技术 Babel转码器 可以直接return html元素"></a>6. JSX技术 Babel转码器 可以直接return html元素</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">	return (</span><br><span class="line">		&lt;p&gt;example&lt;/p&gt;  //only one element</span><br><span class="line">	);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-return-lt-p-gt-lt-p-gt-实际上转换了底下的写法"><a href="#7-return-lt-p-gt-lt-p-gt-实际上转换了底下的写法" class="headerlink" title="7. return &lt;p&gt;&lt;/p&gt; 实际上转换了底下的写法"></a>7. <code>return &lt;p&gt;&lt;/p&gt;</code> 实际上转换了底下的写法</h4><p>也可以 <code>React.createElement(&#39;p&#39;, &#123;classname: &#39;Login&#39;&#125;)</code></p>
+<p>Emmet 帮助快速编写html的插件 </p>
+<p>在settings-&gt;Extensions-&gt; Emmet 可以设置Emmet支持js react 默认支持html</p>
+<p>return只能返回一个元素 可以用React.Fragment 包裹多个元素</p>
+<p><code>&#123;/* 注释 */&#125;</code></p>
+<p><code>&#123;js代码&#125;</code></p>
+<h4 id="8-Bulma-template-light-weighted-100-responsive"><a href="#8-Bulma-template-light-weighted-100-responsive" class="headerlink" title="8. Bulma template  light-weighted 100%responsive"></a>8. Bulma template  light-weighted 100%responsive</h4><p>安装Bulma和sass</p>
+<h4 id="9-可以直接在index页面给header传参，在header-js通过props获取"><a href="#9-可以直接在index页面给header传参，在header-js通过props获取" class="headerlink" title="9. 可以直接在index页面给header传参，在header.js通过props获取"></a>9. 可以直接在index页面给header传参，在header.js通过props获取</h4><p>index:<code>&lt;header nickname=&quot;Admin&quot; /&gt;</code></p>
+<p>header: <code>span.nickname    &#123;this.props.nickname&#125;</code></p>
+<p>使用React.Fragment包裹返回值，只return一个html元素</p>
+<p>调用函数,{this.func()}</p>
+<h4 id="10-函数式组件-const-Header-gt-props-gt-return内容-html"><a href="#10-函数式组件-const-Header-gt-props-gt-return内容-html" class="headerlink" title="10. 函数式组件 const Header =&gt; props =&gt; ( return内容 html)"></a>10. 函数式组件 <code>const Header =&gt; props =&gt; ( return内容 html)</code></h4><h4 id="11-组件路由-react-router-可集成-简单-或者next-js"><a href="#11-组件路由-react-router-可集成-简单-或者next-js" class="headerlink" title="11. 组件路由 react router (可集成 简单)或者next.js"></a>11. 组件路由 react router (可集成 简单)或者next.js</h4><p>安装react router <code>npm install history@5 react-router-dom@6</code></p>
+<p>Prettier默认快捷键是alt + shift + f</p>
+<h4 id="12-html元素用onclike-””传递string来处理监听"><a href="#12-html元素用onclike-””传递string来处理监听" class="headerlink" title="12. html元素用onclike=””传递string来处理监听"></a>12. html元素用onclike=””传递string来处理监听</h4><p><img src="https://i.loli.net/2021/11/20/4lBc6wZtA2r1u7G.png" srcset="/img/loading.gif" lazyload alt="微信截图_20211119165905"></p>
+<p>onClick大写</p>
+<h4 id="13-手动绑定this"><a href="#13-手动绑定this" class="headerlink" title="13. 手动绑定this"></a>13. 手动绑定this</h4><p>在onClick后bind(this)</p>
+<p><code>&lt;a href=&quot;/login&quot; className=&quot;button&quot; onClick=&#123;this.handleClick.bind(this)&#125;&gt; click this &lt;/a&gt; </code></p>
+<p>或者箭头函数绑定，但是容易导致子组件重新渲染</p>
+<p><img src="https://i.loli.net/2021/11/20/KqWpo6c3dMiCbRL.png" srcset="/img/loading.gif" lazyload alt="微信截图_20211119231659"></p>
+<p>可以通过constructor绑定</p>
+<p><img src="https://i.loli.net/2021/11/20/t91Rk6ynTYDloah.png" srcset="/img/loading.gif" lazyload alt="微信截图_20211119231943"></p>
+<p>也可以箭头函数本身绑定</p>
+<p><img src="https://i.loli.net/2021/11/20/oGMuqJ38HzbplNs.png" srcset="/img/loading.gif" lazyload alt="微信截图_20211119231959"></p>
+<p>传参</p>
+<p><img src="https://i.loli.net/2021/11/20/cyLIz8gE5GMkQFP.jpg" srcset="/img/loading.gif" lazyload alt="Inked微信截图_20211119232516_LI"></p>
+<h4 id="14-Deal-with-form-data"><a href="#14-Deal-with-form-data" class="headerlink" title="14. Deal with form data"></a>14. Deal with form data</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">  emailRef = React.createRef();</span><br><span class="line">  passwordRef = React.createRef();  </span><br><span class="line"></span><br><span class="line">handleSubmit = event =&gt; &#123;</span><br><span class="line">    // 1. 阻止默认实践行为</span><br><span class="line">    event.preventDefault();</span><br><span class="line">    // 2. 获取表单数据</span><br><span class="line">    const formData = &#123;</span><br><span class="line">      email : this.emailRef.current.value,  // 在底下input进行bind</span><br><span class="line">      password: this.passwordRef.current.value</span><br><span class="line">    &#125;;</span><br><span class="line">    console.log(formData);</span><br><span class="line">    // 3. 处理登录逻辑</span><br><span class="line">    // 4. 跳转到首页视图</span><br><span class="line">    this.props.history.push(&#x27;/&#x27;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="15-State"><a href="#15-State" class="headerlink" title="15. State"></a>15. State</h4><p>We only need to update state to update the whle page.</p>
+<p><code>constructor()</code> should add <code>super()</code> in it. <code>super(props)</code> refers to the parent class constructor. <a target="_blank" rel="noopener" href="https://overreacted.io/why-do-we-write-super-props/">Link text Here</a></p>
+<p>Because constructors of all components extending <code>React.Component</code> will need <code>super()</code> to be initialized. We use <code>this.props</code>to pass data among parent component and children components. <code>props</code> is a parameter that is used by parent component to pass data to children components.</p>
+<p>Define a state:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">state = &#123;</span><br><span class="line">	isLike: false</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">handleClick = () =&gt; &#123;</span><br><span class="line">	this.setState(&#123;</span><br><span class="line">		isLike: !this.state.isLike</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;button className=&quot;button&quot; onClick=&#123;this.handleClick&#125;&gt; &#123;this.state.isLike ? &#x27;No&#x27; : &#x27;Yes&#x27;&#125;&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>If we want to use the last updated state, we need a Callback</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">this.setState(prevState =&gt; &#123;</span><br><span class="line">	return &#123;count : prevState.count + 2&#125;;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="16-Controlled-Component-and-Uncontrolled-Component"><a href="#16-Controlled-Component-and-Uncontrolled-Component" class="headerlink" title="16. Controlled Component and Uncontrolled Component"></a>16. Controlled Component and Uncontrolled Component</h4><p>uncontrolled component: can only read the state</p>
+<p>controlled component: can change the state of the component</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">state = &#123;</span><br><span class="line">	email : &#x27;&#x27;,</span><br><span class="line">	password : &#x27;&#x27;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">handleChange = e =&gt; &#123;</span><br><span class="line">	console.log(e.target.value);   // get the value</span><br><span class="line">	console.log(e.target.name);   // can deal with two names</span><br><span class="line">	this.setState(&#123;</span><br><span class="line">		[e.target.name]: e.target.value.toUpperCase()</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;input value=&#123;this.state.email&#125; onChange=&#123;this.handleChange&#125; name=&quot;email&quot; /&gt; // the name of input should be the same as the state</span><br><span class="line">&lt;input value=&#123;this.state.password&#125; onChange=&#123;this.handleChange&#125; name=&quot;password&quot; /&gt; // the name of input should be the same as the state</span><br></pre></td></tr></table></figure>
+
+<p> Through this, we can get the form data (email and password).</p>
+<h4 id="17-Component-Layout"><a href="#17-Component-Layout" class="headerlink" title="17. Component Layout"></a>17. Component Layout</h4><p>divide the page into two parts, toolbox and products.</p>
+<p>create Toolbox.js and Product.js</p>
+<p>SCSS could use Nested</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/11/22/Blog-Bookmarks/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Blog Bookmarks</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/11/18/Steps-to-Deploy-a-Springboot-Program/">
+                        <span class="hidden-mobile">Steps to Deploy a Springboot Program</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
