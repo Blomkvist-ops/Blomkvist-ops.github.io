@@ -23,11 +23,14 @@
 <meta property="og:site_name" content="Meihui Li">
 <meta property="og:description" content="React ref 4th Set JSDB1. install json servercreate a new folder copy json file from GitHub 123yarn add json-servernpx json-server --watch db.json --port 3003 &#x2F;&#x2F; since we don&amp;#x27;t have json setting f">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2021/12/25/xG9K2azV6isbEnI.png">
+<meta property="og:image" content="https://s2.loli.net/2021/12/25/Q2UMaLCpBtlx3kS.png">
 <meta property="article:published_time" content="2021-12-25T03:23:35.000Z">
-<meta property="article:modified_time" content="2021-12-25T04:15:39.424Z">
+<meta property="article:modified_time" content="2021-12-25T09:43:11.011Z">
 <meta property="article:author" content="Meihui Li">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s2.loli.net/2021/12/25/xG9K2azV6isbEnI.png">
   
   <title>Notes of React 2 - Meihui Li</title>
 
@@ -196,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      852 字
+      2.2k 字
     </span>
   
 
@@ -205,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3 分钟
+      7 分钟
     </span>
   
 
@@ -251,8 +254,40 @@
 <p>new file in commons to set axios</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> _axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;<br><br><span class="hljs-keyword">const</span> axios = <span class="hljs-function">(<span class="hljs-params">baseURL</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">const</span> instance = _axios.create(&#123;<br>    <span class="hljs-attr">baseURL</span>: baseURL || <span class="hljs-string">&quot;http://localhost:3003&quot;</span>,<br>    <span class="hljs-attr">timeout</span>: <span class="hljs-number">1000</span>,<br>  &#125;);<br><br>  <span class="hljs-keyword">return</span> instance;<br>&#125;;<br><br><span class="hljs-keyword">export</span> &#123; axios &#125;;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> axios();<br><br></code></pre></td></tr></table></figure>
 
+<h4 id="3-Search-Product"><a href="#3-Search-Product" class="headerlink" title="3. Search Product"></a>3. Search Product</h4><p>In toolbox.js, change text into controlled component</p>
+<p>In Products.js, create search function (because search function is to filter all the products)</p>
+<p>// 1. Get New Array</p>
+<p>// 2. Filter New Array</p>
+<p>用match搜索</p>
+<p>// 3. set State</p>
+<p>得到新的products数组的值，重新渲染UI</p>
+<h3 id="5th-Add-animation-effects-to-products"><a href="#5th-Add-animation-effects-to-products" class="headerlink" title="5th Add animation effects to products"></a>5th Add animation effects to products</h3><p>products wrapped by Transition Group (多个元素)</p>
+<p>用CSSTransition包裹单个元素</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">CSSTransition</span> <span class="hljs-attr">classNames</span>=<span class="hljs-string">&quot;product-fade&quot;</span> <span class="hljs-attr">timeout</span>=<span class="hljs-string">&#123;300&#125;</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#123;p.id&#125;</span>&gt;</span> //classNames 是前缀，timeout是渐进时间，key是区分每个product<br></code></pre></td></tr></table></figure>
+
+<h3 id="6th-POP-window"><a href="#6th-POP-window" class="headerlink" title="6th POP window"></a>6th POP window</h3><p><img src="https://s2.loli.net/2021/12/25/xG9K2azV6isbEnI.png" srcset="/img/loading.gif" lazyload></p>
+<p>children component 调用父组件函数 button</p>
+<p><img src="https://s2.loli.net/2021/12/25/Q2UMaLCpBtlx3kS.png" srcset="/img/loading.gif" lazyload></p>
+<p>构建表单，通过表单传递信息给API，重新渲染页面</p>
+<p>构建可控组建：</p>
+<p>新建</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">state</span> = &#123;<br>  name: <span class="hljs-string">&#x27;&#x27;</span>,<br>  price: <span class="hljs-string">&#x27;&#x27;</span>,<br>  tags: <span class="hljs-string">&#x27;&#x27;</span>,<br>  image: <span class="hljs-string">&#x27;&#x27;</span>,<br>  status: <span class="hljs-string">&#x27;available&#x27;</span><br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>然后新建</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs aspectj">handleChange = e =&gt; &#123;<br>  <span class="hljs-keyword">const</span> value = e.<span class="hljs-keyword">target</span>.value;<br>  <span class="hljs-keyword">const</span> name = e.<span class="hljs-keyword">target</span>.name;<br>  <span class="hljs-keyword">this</span>.setState(&#123;<br>    [name]: value<br>  &#125;);<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>然后绑定</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">&lt;textarea<br>  className=<span class="hljs-string">&quot;textarea&quot;</span><br>  name=<span class="hljs-string">&quot;name&quot;</span><br>  value=&#123;<span class="hljs-keyword">this</span>.state.name&#125;  <span class="hljs-comment">// 和state里面的attribute对应</span><br>  onChange=&#123;<span class="hljs-keyword">this</span>.handleChange&#125;<br>/&gt;<br></code></pre></td></tr></table></figure>
+
+<p>用submit函数获取表单数据</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">submit = e =&gt; &#123;<br>  e.preventDefault(); <span class="hljs-comment">//阻止默认行为</span><br>  <span class="hljs-keyword">const</span> product = &#123; ...<span class="hljs-keyword">this</span>.state &#125;; <span class="hljs-comment">//获取state数据</span><br>  axios.post(<span class="hljs-string">&#x27;products&#x27;</span>, product).then(res =&gt; &#123;<br>    <span class="hljs-keyword">this</span>.props.close(res.<span class="hljs-keyword">data</span>);<br>    toast.success(<span class="hljs-string">&#x27;Add Success&#x27;</span>);<br>  &#125;); <span class="hljs-comment">//post方法提交到REST API</span><br>&#125;;<br></code></pre></td></tr></table></figure>
 
 
+
+<p>ToastContainer使用</p>
+<p><a target="_blank" rel="noopener" href="https://fkhadra.github.io/react-toastify/introduction">https://fkhadra.github.io/react-toastify/introduction</a></p>
+<p>container在index.js导入，与Router同级，用一个div包裹</p>
+<p>toast放在AddInventory.js</p>
 
             </div>
             <hr>
