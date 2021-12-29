@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://s2.loli.net/2021/12/25/xG9K2azV6isbEnI.png">
 <meta property="og:image" content="https://s2.loli.net/2021/12/25/Q2UMaLCpBtlx3kS.png">
 <meta property="article:published_time" content="2021-12-25T03:23:35.000Z">
-<meta property="article:modified_time" content="2021-12-26T23:23:53.580Z">
+<meta property="article:modified_time" content="2021-12-29T08:09:35.615Z">
 <meta property="article:author" content="Meihui Li">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary_large_image">
@@ -199,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.2k 字
+      3.9k 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10 分钟
+      12 分钟
     </span>
   
 
@@ -307,7 +307,25 @@
 <p>delete btn bind <code>onClick=&#123;this.onDelete&#125;</code> </p>
 <h3 id="7th-Cart"><a href="#7th-Cart" class="headerlink" title="7th Cart"></a>7th Cart</h3><p>async function查找是否product已经在购物车里</p>
 <p>状态提升，toolbox和product都是products的子组件，是兄弟组件，所以把state里面的cartNum 提高到父组件products进行处理。</p>
-<h3 id="8th-JWT"><a href="#8th-JWT" class="headerlink" title="8th JWT"></a>8th JWT</h3>
+<h3 id="8th-JWT"><a href="#8th-JWT" class="headerlink" title="8th JWT"></a>8th JWT</h3><p>update </p>
+<p><code>import useForm from &#39;react-hook-form&#39;;</code> </p>
+<p>to</p>
+<p><code>import &#123; useForm &#125; from &#39;react-hook-form&#39;;</code></p>
+<p>update </p>
+<p> <code>const &#123; register, handleSubmit, errors &#125; = useForm();</code> </p>
+<p>to</p>
+<p> <code>const &#123; register, handleSubmit, formState: &#123; errors &#125; &#125; = useForm();</code></p>
+<h3 id="9th-Deploy"><a href="#9th-Deploy" class="headerlink" title="9th Deploy"></a>9th Deploy</h3><p>deploy on zeit.co</p>
+<p>install now <code>sudo npm install -g now</code></p>
+<p>connect your github account with zeit</p>
+<p>change “scripts” in package.json to</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-string">&quot;scripts&quot;</span>: &#123;<br>    <span class="hljs-string">&quot;start&quot;</span>: <span class="hljs-string">&quot;serve --single ./build&quot;</span>, <span class="hljs-regexp">//</span>build目录下 单页面<br>    <span class="hljs-string">&quot;dev&quot;</span>: <span class="hljs-string">&quot;react-scripts start&quot;</span>,<br>    <span class="hljs-string">&quot;build&quot;</span>: <span class="hljs-string">&quot;react-scripts build&quot;</span>, <span class="hljs-regexp">//</span> 打包<br>    <span class="hljs-string">&quot;test&quot;</span>: <span class="hljs-string">&quot;react-scripts test&quot;</span>,<br>    <span class="hljs-string">&quot;eject&quot;</span>: <span class="hljs-string">&quot;react-scripts eject&quot;</span><br>  &#125;,<br></code></pre></td></tr></table></figure>
+
+<p>install serve in vscode</p>
+<p><code>yarn add serve</code></p>
+<p>then</p>
+<p><code>now</code></p>
+
             </div>
             <hr>
             <div>
