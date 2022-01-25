@@ -112,14 +112,16 @@
 
   function getTableColor() {
       var colorTable = document.getElementById('table1011'); //mine
-      var currentSetting = getLS(colorSchemaStorageKey);
-      console.log(currentSetting);
-      console.log("running");
+      var currentSetting = getLS(colorSchemaStorageKey); // get current color setting
+      // console.log(currentSetting);
+      // console.log("running"); // for testing
+      // when table exists
       if (colorTable != null) {
+          // when current setting is light
           if (currentSetting == "light") {
-              colorTable.style.color = "black";
-              colorTable.classList.remove("dark-table");
-              colorTable.classList.add("day-table");
+              colorTable.style.color = "black"; 
+              colorTable.classList.remove("dark-table");  // remove dark mode tag
+              colorTable.classList.add("day-table");     //  add light mode tag
               } else {
                 colorTable.style.color = "white";
                 colorTable.classList.remove("day-table");
