@@ -5,6 +5,7 @@
 
 .day-table a:hover {
     color:#628680;
+    text-decoration:underline;
 }
 
 
@@ -25,6 +26,7 @@
 
 .dark-table a:hover {
   color:#628680;
+  text-decoration:underline;
 }
 
 .dark-table a:active {
