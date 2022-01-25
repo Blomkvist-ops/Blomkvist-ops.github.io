@@ -112,7 +112,7 @@
 
   function getTableColor() {
       var colorTable = document.getElementById('table1011'); //mine
-      var currentSetting = schema || getLS(colorSchemaStorageKey) || getDefaultColorSchema();
+      var currentSetting = getLS(colorSchemaStorageKey);
       console.log(currentSetting);
       console.log("running");
       if (colorTable != null) {
