@@ -83,6 +83,8 @@
   function applyCustomColorSchemaSettings(schema) {
     // 接受从「开关」处传来的模式，或者从 localStorage 读取，否则按默认设置值
     var current = schema || getLS(colorSchemaStorageKey) || getDefaultColorSchema();
+    
+  
 
     if (current === getDefaultColorSchema()) {
       // 当用户切换的显示模式和默认模式相同时，则恢复为自动模式
@@ -103,7 +105,31 @@
 
     // 设置其他应用
     setApplications(current);
+
+    getTableColor(); //test
   }
+
+
+  function getTableColor() {
+      var colorTable = document.getElementById('table1011'); //mine
+      var currentSetting = getLS(colorSchemaStorageKey);
+      console.log(currentSetting);
+      if (colorTable != null) {
+          if (currentSetting == "light") {
+              colorTable.style.color = "black";
+              colorTable.classList.add("day-table");
+              colorTable.classList.remove("dark-table");
+              } else {
+                colorTable.style.color = "white";
+                colorTable.classList.remove("day-table");
+                colorTable.classList.add("dark-table");
+              }              
+      } else {
+        return;
+      }
+
+  }
+
 
   var invertColorSchemaObj = {
     dark : 'light',

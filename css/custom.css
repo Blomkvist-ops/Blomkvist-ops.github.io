@@ -1,0 +1,17 @@
+.day-table a {
+  color:#423F21;
+  text-decoration:underline;
+}
+
+.day-table a:hover {
+    color:#628680;
+}
+
+.dark-table a {
+  color:#C7EDCC;
+  text-decoration:underline;
+}
+
+.dark-table a:hover {
+  color:#628680;
+}
