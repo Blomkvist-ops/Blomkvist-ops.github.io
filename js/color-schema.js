@@ -112,13 +112,14 @@
 
   function getTableColor() {
       var colorTable = document.getElementById('table1011'); //mine
-      var currentSetting = getLS(colorSchemaStorageKey);
+      var currentSetting = schema || getLS(colorSchemaStorageKey) || getDefaultColorSchema();
       console.log(currentSetting);
+      console.log("running");
       if (colorTable != null) {
           if (currentSetting == "light") {
               colorTable.style.color = "black";
-              colorTable.classList.add("day-table");
               colorTable.classList.remove("dark-table");
+              colorTable.classList.add("day-table");
               } else {
                 colorTable.style.color = "white";
                 colorTable.classList.remove("day-table");
